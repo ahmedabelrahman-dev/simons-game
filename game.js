@@ -330,15 +330,7 @@ function playSound(name) {
 function toggleAudio() {
   audioEnabled = !audioEnabled;
   localStorage.setItem('simonAudioEnabled', audioEnabled);
-  
-  // Visual feedback for audio toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  const originalIcon = themeToggle.innerHTML;
-  
-  themeToggle.innerHTML = audioEnabled ? originalIcon : '🔇';
-  setTimeout(() => {
-    themeToggle.innerHTML = originalIcon;
-  }, 1000);
+  updateAudioButtonState();
 }
 
 function setVolume(volume) {
@@ -399,14 +391,6 @@ $('.btn').on('contextmenu', function(e) {
 
 // Add some visual feedback for better UX
 $(document).ready(function() {
-  // Add loading animation to buttons
-  $('.btn').each(function(index) {
-    $(this).css('animation-delay', (index * 0.1) + 's');
-    $(this).addClass('btn-load');
-  });
-  
-  // Remove loading class after animation
-  setTimeout(function() {
-    $('.btn').removeClass('btn-load');
-  }, 1000);
+  // Ensure buttons are visible
+  $('.btn').css('opacity', '1').css('transform', 'scale(1)');
 });
