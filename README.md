@@ -1,6 +1,6 @@
 # demo
 
-![demo picture](simon.png)
+![demo picture](demo.png)
 
 # simon game
 
