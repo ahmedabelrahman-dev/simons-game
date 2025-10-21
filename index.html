@@ -3,36 +3,72 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Simon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simon's Game - Modern Edition</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-  <h1 id="level-title">Press A Key to Start</h1>
-  <div class="container">
-    <div lass="row">
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <span class="theme-icon">🌙</span>
+  </button>
 
-      <div type="button" id="green" class="btn green">
+  <!-- Audio Toggle -->
+  <button id="audio-toggle" class="audio-toggle" aria-label="Toggle audio">
+    <span class="audio-icon">🔊</span>
+  </button>
 
+  <!-- Header -->
+  <header class="header">
+    <h1 id="level-title">Press Any Key to Start</h1>
+    <div class="game-info">
+      <div class="score-display">
+        <span class="score-label">Score:</span>
+        <span id="score">0</span>
       </div>
-
-      <div type="button" id="red" class="btn red">
-
+      <div class="high-score-display">
+        <span class="high-score-label">High Score:</span>
+        <span id="high-score">0</span>
       </div>
     </div>
+  </header>
 
-    <div class="row">
-
-      <div type="button" id="yellow" class="btn yellow">
-
+  <!-- Main Game Container -->
+  <main class="main">
+    <div class="game-container">
+      <div class="simon-buttons">
+        <button id="green" class="btn green" aria-label="Green button">
+          <span class="btn-content"></span>
+        </button>
+        <button id="red" class="btn red" aria-label="Red button">
+          <span class="btn-content"></span>
+        </button>
+        <button id="yellow" class="btn yellow" aria-label="Yellow button">
+          <span class="btn-content"></span>
+        </button>
+        <button id="blue" class="btn blue" aria-label="Blue button">
+          <span class="btn-content"></span>
+        </button>
       </div>
-      <div type="button" id="blue" class="btn blue">
-
-      </div>
-
     </div>
+  </main>
 
+  <!-- Game Over Modal -->
+  <div id="game-over-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Game Over!</h2>
+      <p>Your Score: <span id="final-score">0</span></p>
+      <button id="restart-btn" class="restart-btn">Play Again</button>
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="instructions">
+    <p>Follow the sequence of lights and sounds. Press the buttons in the same order!</p>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
